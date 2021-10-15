@@ -84,7 +84,7 @@ function Register(props){
                   </div>
                 </div>
                 <div className='form-group'>
-                   <label>Mật khẩu</label>
+                  <label>Mật khẩu</label>
                   <input 
                     type="password" 
                     className="form-control" 
@@ -93,7 +93,7 @@ function Register(props){
                   />            
                 </div>
                 <div className='form-group'>
-                   <label>Xác nhận mật khẩu</label>
+                  <label>Xác nhận mật khẩu</label>
                   <input 
                     type="password" 
                     className="form-control" 

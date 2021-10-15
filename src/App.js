@@ -45,11 +45,11 @@ function App(props){
     <BrowserRouter>
     <div className='App'>
         <div className='auth-wrapper'>
-                    <Switch>
-                        <Route exact path='/' component={Home} /> 
-                        <Route exact path='/login' component={Login}/>
-                        <PublicRoute exact path='/register' component={Register}/>
-                    </Switch>
+          <Switch>
+            <Route exact path='/' component={Home} /> 
+            <Route exact path='/login' component={Login}/>
+            <PublicRoute exact path='/register' component={Register}/>
+          </Switch>
         </div>
     </div>
     </BrowserRouter>

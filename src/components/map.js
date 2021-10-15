@@ -33,7 +33,7 @@ class map extends React.Component{
          [ 10.030713039441878, 105.771513300435728 ], [ 10.03033101972464, 105.77198111271656 ],
          [ 10.030233, 105.772127 ]];
 
-        return (
+    return (
         <div className='map'>s
            <MapContainer className='map' center={positionGreenIcon} zoom={17} scrollWheelZoom={true}>
             <TileLayer

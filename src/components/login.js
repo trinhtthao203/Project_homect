@@ -30,36 +30,36 @@ function Login(props) {
     props.history.push('/');
   }
   return(
-          <form >
-            <h3>Đăng nhập</h3>
-                <div className="form-group">
-                  <label>Tên tài khoản</label>
-                  <input 
-                    type="text"  
-                    className="form-control" 
-                    value={userName}
-                    onChange={val=> setUserName(val.target.value)}
-                  />
-                </div>
-                <div className='form-group'>
-                   <label>Mật khẩu</label>
-                  <input 
-                    type="password" 
-                    className="form-control" 
-                    value={passwd}
-                    onChange={val=> setPasswd(val.target.value)}
-                  />            
-                </div>
-                {error && <div className='error'>{error}</div>}
-                <div className="d-grid gap-2">
-                  <button onClick={handleSubmit} className="btn btn-primary" type="button">Đăng nhập</button>
-                  <button onClick={handleCancel} className="btn btn-outline-primary" type="button">Hủy</button>
-                </div>
-                <div className='register'>
-                    <p>Bạn chưa có tài khoản ? </p><Link to={'/register'}>Đăng kí</Link>
-                </div>
-            </form>  
-        );
+    <form >
+      <h3>Đăng nhập</h3>
+      <div className="form-group">
+        <label>Tên tài khoản</label>
+        <input 
+          type="text"  
+          className="form-control" 
+          value={userName}
+          onChange={val=> setUserName(val.target.value)}
+        />
+      </div>
+      <div className='form-group'>
+      <label>Mật khẩu</label>
+      <input 
+        type="password" 
+        className="form-control" 
+        value={passwd}
+        onChange={val=> setPasswd(val.target.value)}
+      />            
+      </div>
+      {error && <div className='error'>{error}</div>}
+      <div className="d-grid gap-2">
+      <button onClick={handleSubmit} className="btn btn-primary" type="button">Đăng nhập</button>
+      <button onClick={handleCancel} className="btn btn-outline-primary" type="button">Hủy</button>
+    </div>
+    <div className='register'>
+      <p>Bạn chưa có tài khoản ? </p><Link to={'/register'}>Đăng kí</Link>
+    </div>
+  </form>  
+);
 }
 
 export default Login;

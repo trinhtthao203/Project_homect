@@ -108,12 +108,10 @@ body, html, .App,#root,.auth-wrapper{
   color: rgb(196, 19, 19);
   margin-bottom:10px ;
 }
-
 .register{
   margin-top: 10px;
   display: flex;
 }
-
 .map{
   height: 50vh;
   width: 100%;

@@ -48,7 +48,6 @@ function Home (props){
     </nav>
     );
   }
-
   if(user){
     return(
       <div>

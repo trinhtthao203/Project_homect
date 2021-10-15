@@ -11,7 +11,6 @@ export default class Dashboard extends React.Component{
     //       console.log(err); 
     //     })
     // }
-
     render(){
         return(
             <h2>Bạn đã đăng nhập thành công </h2>
