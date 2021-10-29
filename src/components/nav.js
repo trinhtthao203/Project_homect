@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getUser ,removeUserSession } from '../Utils/Common';
 import axios from 'axios';
 
-function nav(props) { 
+function Nav(props) { 
 
     const user = getUser();
     
@@ -38,7 +38,9 @@ function nav(props) {
             </div>
             </nav>  
         );
-        
-}}
-export default nav;
+    }
+
+    
+}
+export default Nav;
 

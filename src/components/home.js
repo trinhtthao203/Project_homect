@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, removeUserSession } from "../Utils/Common";
 import { Link } from "react-router-dom";
 import Map from "./map";
-
+import ListItems from "./ListItems";
+import BTLeaflet from "./BTLeaflet";
 function Home(props) {
+  function renderHeader(){
   const user = getUser();
   const token = getToken();
 
@@ -11,10 +13,9 @@ function Home(props) {
     removeUserSession();
     props.history.push("/login");
   };
-
+  
   console.log(user);
   console.log(token);
-
   let nav;
   if (getUser() && getToken()) {
     nav = (
@@ -54,6 +55,7 @@ function Home(props) {
         </div>
       </nav>
     );
+   
   }
   if (user) {
     return (
@@ -63,6 +65,7 @@ function Home(props) {
         <br />
         <h2>Welcome to my home page </h2>
         <Map />
+      
         {/* <input type="button" onClick={handleLogout} value="Logout" /> */}
       </div>
     );
@@ -73,7 +76,15 @@ function Home(props) {
         <h2>Ban chua dang nhap</h2>
       </div>
     );
+  };
   }
+  return (
+    <div>
+    {renderHeader()}
+     <br/>
+      <ListItems/>
+   </div>
+  )
 }
 
 export default Home;

@@ -1,6 +1,6 @@
 import React from "react";
 import L from "leaflet";
-import "../Leaflet/js/jquery-3.5.1.min.js";
+//import "../Leaflet/js/jquery-3.5.1.min.js";
 import { Map, TileLayer, Marker, Popup, MapContainer } from "react-leaflet";
 import leafGreen from "../Leaflet/css/images/leaf-green.png";
 import leafShadow from "../Leaflet/css/images/leaf-shadow.png";
