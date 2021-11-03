@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
 import Itemdetail from "./components/Itemdetail";
 import BTLeaflet from "./components/BTLeaflet";
+import Post from "./components/post";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PublicRoute from "./Utils/PublicRoute";
 import PrivateRoute from "./Utils/PrivateRoute";
@@ -57,6 +57,7 @@ function App(props) {
             <Route exact path="/Baitap" component={BTLeaflet} />
             <Route exact path="/Itemdetail/:id" component={Itemdetail} />
             <PublicRoute exact path="/register" component={Register} />
+            <Route exact path="/post" component={Post} />
           </Switch>
         </div>
       </BrowserRouter>

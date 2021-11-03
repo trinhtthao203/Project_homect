@@ -27,6 +27,11 @@ function Home(props) {
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
+                <Link className="nav-link" to={"/post"}>
+                  Đăng bài
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" onClick={handleLogout} to={"/"}>
                   Đăng xuất
                 </Link>
