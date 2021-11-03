@@ -43,7 +43,6 @@ class map extends React.Component {
 
     return (
       <div className="map">
-        s
         <MapContainer
           className="map"
           center={positionGreenIcon}
