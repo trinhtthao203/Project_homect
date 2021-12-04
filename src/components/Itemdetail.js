@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import BlueIcon from "../Leaflet/css/images/blueicon.png";
+
 function Itemdetail(props) {
   const itemId = props.match.params.id;
   const [Item, setItem] = useState([]);
@@ -15,28 +16,32 @@ function Itemdetail(props) {
       })
       .then((res) => {
         setItem(res.data[0]);
+        console.log(res.data[0]);
         //Return Object in Array
       })
       .catch((error) => {
         console.log(error);
       });
-  });
-
-  console.log(Item.toado);
-
+  }, []);
   //const photo = require(`../Images/${Item.url}`).default;
-
-  // <img src={photo} alt={Item.tenchungcu} height='10%' width='50%'/>
   return (
     <div>
-      <Nav />
+      <nav className="navbar navbar-expand navbar-light fixed-top">
+        <div className="container">
+          <Link className="navbar-brand" to={"/"}>
+            Trang chủ
+          </Link>
+        </div>
+      </nav>
       <br />
       <br />
       <br />
       <div className="item-page-detail">
         <h1 className="item-name">{Item.tieude}</h1>
         <div className="item-info">
-          <span className="item-img"></span>
+          <span className="item-img">
+            <img src={Item.hinhanh} height="10%" width="50%" />
+          </span>
           <span className="item-detail">
             <div>
               <div>
@@ -58,7 +63,10 @@ function Itemdetail(props) {
               <br />
               <div>
                 <h4>Mô tả</h4>
-                <div>{Item.mota}</div>
+                <div>
+                  {/* {Item.toado} */}
+                  {Item.mota}
+                </div>
               </div>
             </div>
           </span>
@@ -74,14 +82,12 @@ function Itemdetail(props) {
                   attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-
-                {/* <Marker position={} icon={L.icon({iconUrl: BlueIcon})}>
-                        <Popup>
-                            
-                             {Item.tenchungcu}
-                             
-                        </Popup>
-                    </Marker> */}
+                {/* <Marker
+                  position={Item.toado}
+                  icon={L.icon({ iconUrl: BlueIcon })}
+                >
+                  <Popup>{Item.tenchungcu}</Popup>
+                </Marker> */}
               </Map>
             </div>
           </div>
