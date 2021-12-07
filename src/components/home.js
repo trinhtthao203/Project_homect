@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getUser, getToken, removeUserSession } from "../Utils/Common";
 import { Link } from "react-router-dom";
-import Map from "./map";
 import ListItems from "./ListItems";
-import BTLeaflet from "./BTLeaflet";
 function Home(props) {
-  function renderHeader(){
   const user = getUser();
   const token = getToken();
 
@@ -13,9 +10,7 @@ function Home(props) {
     removeUserSession();
     props.history.push("/login");
   };
-  
-  console.log(user);
-  console.log(token);
+
   let nav;
   if (getUser() && getToken()) {
     nav = (
@@ -28,7 +23,7 @@ function Home(props) {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link className="nav-link" to={"/post"}>
-                  Đăng bài
+                  Tạo bài đăng
                 </Link>
               </li>
               <li className="nav-item">
@@ -60,6 +55,7 @@ function Home(props) {
         </div>
       </nav>
     );
+<<<<<<< HEAD
    
   }
     return (
@@ -70,13 +66,16 @@ function Home(props) {
     );
   };
   
+=======
+  }
+>>>>>>> 833135fc65969acd7b54ed9fd28ac7f63836bd9d
   return (
     <div>
-    {renderHeader()}
-     <br/>
-      <ListItems/>
-   </div>
-  )
+      {nav}
+      <br />
+      <ListItems />
+    </div>
+  );
 }
 
 export default Home;

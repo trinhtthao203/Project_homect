@@ -59,11 +59,7 @@ function Login(props) {
           </div>
           {error && <div className="error">{error}</div>}
           <div className="d-grid gap-2">
-            <button
-              onClick={handleSubmit}
-              className="btn btn-primary"
-              type="button"
-            >
+            <button onClick={handleSubmit} className="btn-custom" type="button">
               Đăng nhập
             </button>
             <button

@@ -7,6 +7,7 @@ import Itemdetail from "./components/Itemdetail";
 import BTLeaflet from "./components/BTLeaflet";
 import VdGeom from "./components/VdGeom";
 import Post from "./components/post";
+import AddChungCu from "./components/addChungCu";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PublicRoute from "./Utils/PublicRoute";
 import PrivateRoute from "./Utils/PrivateRoute";
@@ -33,7 +34,6 @@ function App(props) {
       .get(`/verifyToken?token=${token}`)
       .then((response) => {
         setUserSession(response.data.token, user_str);
-        console.log(response.data.user);
         setAuthLoading(false);
       })
       .catch((error) => {
@@ -62,6 +62,7 @@ function App(props) {
             <PublicRoute exact path="/register" component={Register} />
             <Route exact path="/routeMap/:lng/:lat" component={BigMap} />          
             <Route exact path="/post" component={Post} />
+            <Route exact path="/addChungCu" component={AddChungCu} />
           </Switch>
         </div>
       </BrowserRouter>
