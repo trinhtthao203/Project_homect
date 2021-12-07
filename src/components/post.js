@@ -240,7 +240,7 @@ function post(props) {
                   <option value="1" default>
                     Đang chờ sổ
                   </option>
-                  <option value="2">Sổ hồng</option>
+                  <option value="2">Sổ hồng </option>
                   <option value="3">Sổ đỏ</option>
                 </select>
               </div>

@@ -9,7 +9,6 @@ function BigMap(props) {
   const lng = props.match.params.lng;
   return (
     <div>
-        
       <div className="map">
         <MapContainer
           className="map"

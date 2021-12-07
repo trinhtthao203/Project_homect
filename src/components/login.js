@@ -72,7 +72,7 @@ function Login(props) {
           </div>
           <div className="register">
             <p>Bạn chưa có tài khoản ? </p>
-            <Link to={"/register"}>Đăng kí</Link>
+            <Link to={"/register"}>Đăng kí tại đây</Link>
           </div>
         </form>
       </div>

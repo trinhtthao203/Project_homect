@@ -1,10 +1,10 @@
 import React, { useState, useEffect, Alert } from "react";
-import { Map, TileLayer, FeatureGroup } from "react-leaflet";
-import { EditControl } from "react-leaflet-draw";
-import "leaflet/dist/leaflet.css";
-import "leaflet-draw/dist/leaflet.draw.css";
-import "react-leaflet/dist/react-leaflet.min.js";
-import "react-leaflet/dist/react-leaflet.js";
+import { MapContainer, TileLayer, FeatureGroup } from "react-leaflet";
+// import { EditControl } from "react-leaflet-draw";
+// import "leaflet/dist/leaflet.css";
+// import "leaflet-draw/dist/leaflet.draw.css";
+// import "react-leaflet/dist/react-leaflet.min.js";
+// import "react-leaflet/dist/react-leaflet.js";
 import "../index.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
@@ -192,7 +192,7 @@ function addChungCu(props) {
                 Chọn tọa độ <label className="requirelbl">*</label>{" "}
               </label>
               <div id="map">
-                <Map
+                <MapContainer
                   style={{ height: "50vh", width: "100%" }}
                   center={[10.030238227, 105.772118568]}
                   zoom={17}
@@ -228,7 +228,7 @@ function addChungCu(props) {
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
-                </Map>
+                </MapContainer>
               </div>
               {error && <div className="error">{error}</div>}
               <p styles={{ color: "red" }}>* Bắt buộc</p>

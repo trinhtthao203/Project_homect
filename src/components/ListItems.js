@@ -2,12 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
-<<<<<<< HEAD
-class ListItems extends React.Component{
-=======
-
 class ListItems extends React.Component {
->>>>>>> 833135fc65969acd7b54ed9fd28ac7f63836bd9d
   state = {
     baiDang: [],
   };
@@ -16,50 +11,28 @@ class ListItems extends React.Component {
       .get("/baidang")
       .then((res) => {
         const baiDang = res.data;
-<<<<<<< HEAD
-        this.setState({baiDang});
-=======
         this.setState({ baiDang });
->>>>>>> 833135fc65969acd7b54ed9fd28ac7f63836bd9d
       })
       .catch(function (error) {
         console.log(error);
       });
-<<<<<<< HEAD
-    }
-    render(){
-       
-    return (
-        <div>
-            {this.state.baiDang.map((props) => {
-            
-              return(
-            
-              <div>
-               <div className="container-item">
-               <div>
-               <img src={require(`../Images/${props.hinhanh}`).default} alt="Hinh Can Ho" width="100" height="100"/>
-               </div>
-              <div className="re__card-info-content">
-=======
   }
   render() {
     return (
-      <div className="container-listitem">
+      <div>
         {this.state.baiDang.map((props) => {
           return (
             <div>
               <div className="container-item">
                 <div>
                   <img
-                    src={`${props.hinhanh}`}
+                    src={props.hinhanh}
                     alt="Hinh Can Ho"
                     width="100"
                     height="100"
                   />
                 </div>
                 <div className="re__card-info-content">
->>>>>>> 833135fc65969acd7b54ed9fd28ac7f63836bd9d
                   <h3 className="re__card-title">
                     <Link to={`/Itemdetail/${props.idbaidang}`}>
                       <span className="title">{props.tieude}</span>
