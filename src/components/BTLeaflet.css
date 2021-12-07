@@ -1,0 +1,16 @@
+.map{
+    height: 670px;
+    width: 100%;
+    z-index: 0;
+}
+.select{
+    position: absolute;
+    z-index: 1;
+    height: 100px;
+    width: 100px;
+}
+.img-popup{
+    position: center;
+    width: 100px;
+    height: 50px;
+}

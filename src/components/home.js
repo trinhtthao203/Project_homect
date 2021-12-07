@@ -57,7 +57,20 @@ function Home(props) {
         </div>
       </nav>
     );
+<<<<<<< HEAD
+   
   }
+    return (
+      <div className="">
+        {nav}
+        <br/>
+      </div>
+    );
+  };
+  
+=======
+  }
+>>>>>>> 833135fc65969acd7b54ed9fd28ac7f63836bd9d
   return (
     <div>
       {nav}
