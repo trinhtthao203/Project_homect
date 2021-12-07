@@ -62,27 +62,14 @@ function Home(props) {
     );
    
   }
-  if (user) {
-    return (
-      <div>
-        {nav}
-        Welcome {user.fullname}!<br />
-        <br />
-        <h2>Welcome to my home page </h2>
-        <Map />
-      
-        {/* <input type="button" onClick={handleLogout} value="Logout" /> */}
-      </div>
-    );
-  } else {
     return (
       <div className="">
         {nav}
-        <h2>Ban chua dang nhap</h2>
+        <br/>
       </div>
     );
   };
-  }
+  
   return (
     <div>
     {renderHeader()}

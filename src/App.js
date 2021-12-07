@@ -5,10 +5,12 @@ import Login from "./components/login";
 import Register from "./components/register";
 import Itemdetail from "./components/Itemdetail";
 import BTLeaflet from "./components/BTLeaflet";
+import VdGeom from "./components/VdGeom";
 import Post from "./components/post";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PublicRoute from "./Utils/PublicRoute";
 import PrivateRoute from "./Utils/PrivateRoute";
+import BigMap from "./components/bigMap";
 import {
   getToken,
   getUser,
@@ -55,8 +57,10 @@ function App(props) {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/Baitap" component={BTLeaflet} />
+            <Route exact path="/VdGeom" component={VdGeom} />
             <Route exact path="/Itemdetail/:id" component={Itemdetail} />
             <PublicRoute exact path="/register" component={Register} />
+            <Route exact path="/routeMap/:lng/:lat" component={BigMap} />          
             <Route exact path="/post" component={Post} />
           </Switch>
         </div>
