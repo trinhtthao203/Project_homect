@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Alert } from "react";
 import { Map, TileLayer, FeatureGroup } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
 import "leaflet/dist/leaflet.css";
@@ -11,6 +11,8 @@ import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
 import axios from "axios";
 import { Link } from "react-router-dom";
+// import { Alert } from "bootstrap";
+
 let DefaultIcon = L.icon({
   iconUrl: icon,
   shadowUrl: iconShadow,
@@ -18,42 +20,35 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-function addChungCu() {
+function addChungCu(props) {
   const [mapLayer, setMapLayer] = useState([]);
   const [tenchungcu, setTenChungCu] = useState();
-  const [toado, setToaDo] = useState([]);
+  const [isToado, setIsToaDo] = useState(false);
   const [diachi, setDiaChi] = useState([]);
   const [tenduong, setTenDuong] = useState([]);
-  const [quan, setQuan] = useState([]);
-  const [dbduong, setDBTenDuong] = useState([]);
+  const [quan, setQuan] = useState("2");
   const [error, setError] = useState(null);
-
-  useEffect(() => {
-    axios
-      .get("/tenduong")
-      .then((response) => {
-        setDBTenDuong(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
 
   const onCreated = (e) => {
     console.log(e);
-    const { layerType, layer } = e;
+    setIsToaDo(true);
+    const { layer, layerType } = e;
+    // const { _latlng, _leaflet_id } = layer;
+    // const { lat, lng } = _latlng;
+    // setToaDo("POINT(" + lat + "," + lng + ")");
+    // setIDPoint(_leaflet_id);
+    // console.log(_latlng);
     if (layerType === "marker") {
-      // const {_icon} = icon;
       const { _leaflet_id, _latlng } = layer;
-      const { lat, lng } = _latlng;
-      setToaDo((layers) => [
+      // const { lat, lng } = _latlng;
+      setMapLayer((layers) => [
         ...layers,
         {
-          // id: _leaflet_id,
-          type: layerType,
-          coordinates: (lat, lng),
+          id: _leaflet_id,
+          coordinates: _latlng,
         },
       ]);
+      console.log(_latlng);
     }
   };
 
@@ -66,7 +61,7 @@ function addChungCu() {
       setMapLayer((layers) =>
         layers.map((l) =>
           l.id === _leaflet_id
-            ? { ...l, coordinates: { ...editing.latlngs[0] } }
+            ? { ...l, coordinates: { ...editing._marker._latlng } }
             : l
         )
       );
@@ -82,7 +77,39 @@ function addChungCu() {
     });
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    // if (!isToado) {
+    //   setError("Lỗi nhập tọa độ!!! Vui lòng reload lại trang ");
+    //   return;
+    // }
+    const lat = mapLayer[0].coordinates.lat;
+    const lng = mapLayer[0].coordinates.lng;
+    axios
+      .post(`/loadChungCu`, {
+        tenchungcu: tenchungcu,
+        lat: lat,
+        lng: lng,
+        diachi: diachi,
+        tenduong: tenduong,
+        quan: quan,
+      })
+      .then((response) => {
+        console.log("Đăng bài thành công!!!");
+        props.history.push("/");
+      })
+      .catch((error) => {
+        if (error.response.status === 400)
+          setError(error.response.data.message);
+        if (error.response.status === 401)
+          setError(error.response.data.message);
+        if (error.response.status === 403)
+          setError(error.response.data.message);
+        else {
+          setError("Lỗi. Vui lòng thử lại lần nữa !");
+          console.log(error);
+        }
+      });
+  };
   const handleCancel = () => {
     props.history.push("/");
   };
@@ -104,6 +131,7 @@ function addChungCu() {
       </div>
     </nav>
   );
+
   return (
     <div className="">
       {nav}
@@ -113,7 +141,26 @@ function addChungCu() {
             <form>
               <h3>Thêm chung cư</h3>
               <div className="form-group">
-                <label>Tên chung cư</label>
+                <label htmlFor="juridical">
+                  Quận <label className="requirelbl">*</label>
+                </label>
+                <select
+                  className="form-control"
+                  id="district"
+                  onChange={(e) => {
+                    setQuan(e.target.value);
+                  }}
+                >
+                  <option value="2" default>
+                    Ninh Kiều
+                  </option>
+                  <option value="1">Cái Răng</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label>
+                  Tên chung cư<label className="requirelbl">*</label>
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -134,26 +181,16 @@ function addChungCu() {
                 <label htmlFor="apartment">
                   Tên đường <label className="requirelbl">*</label>
                 </label>
-                <select
+                <input
+                  type="text"
                   className="form-control"
-                  id="apartment"
-                  onChange={(e) => {
-                    setTenDuong(e.target.value);
-                  }}
-                >
-                  {dbduong.map((item) => {
-                    return (
-                      <option key={item.tenduong} value={item.tenduong}>
-                        {item.tenduong}
-                      </option>
-                    );
-                  })}
-                </select>
+                  value={tenduong}
+                  onChange={(val) => setTenDuong(val.target.value)}
+                />
               </div>
               <label htmlFor="title">
                 Chọn tọa độ <label className="requirelbl">*</label>{" "}
               </label>
-              {toado}
               <div id="map">
                 <Map
                   style={{ height: "50vh", width: "100%" }}
@@ -168,11 +205,22 @@ function addChungCu() {
                       onEdited={onEdited}
                       onDeleted={onDeleted}
                       draw={{
-                        rectangle: true,
-                        polyline: true,
-                        circle: true,
+                        rectangle: false,
+                        polyline: false,
+                        circle: false,
                         circlemarker: false,
-                        marker: true,
+                        polygon: false,
+                        marker: {
+                          icon: new L.DivIcon({
+                            iconSize: new L.Point(8, 8),
+                            className: "leaflet-div-icon leaflet-editing-icon",
+                          }),
+                          shapeOptions: {
+                            guidelineDistance: 10,
+                            color: "navy",
+                            weight: 3,
+                          },
+                        },
                       }}
                     />
                   </FeatureGroup>

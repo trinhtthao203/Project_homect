@@ -22,6 +22,7 @@ function post(props) {
   const [dbChungCu, setDBChungCu] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userid, setUserID] = useState("");
+  const [textlen, setTextLen] = useState(0);
 
   useEffect(() => {
     const user = getUser();
@@ -273,21 +274,31 @@ function post(props) {
                   </label>
                 </div>
               </div>
-              {loading ? (
-                <h3>Loading...</h3>
-              ) : (
-                <img src={imgData} styles={{ height: "100px" }} />
-              )}
+              <div>
+                {loading ? (
+                  <h3>Loading...</h3>
+                ) : (
+                  <img className="Img-post" src={imgData} />
+                )}
+              </div>
               <div className="form-group">
                 <label htmlFor="description">Mô tả</label>
                 <textarea
                   className="form-control"
                   id="description"
                   rows="7"
+                  maxLength="500"
                   onChange={(e) => {
+                    var len = e.target.value.length;
+                    if (len > 500) {
+                      e.target.value = e.target.value.substring(0, 500);
+                    } else {
+                      setTextLen(len);
+                    }
                     setMoTa(e.target.value);
                   }}
                 ></textarea>
+                <div id="charNum">{textlen}/500 </div>
               </div>
               {error && <div className="error">{error}</div>}
               <p styles={{ color: "red" }}>* Bắt buộc</p>
