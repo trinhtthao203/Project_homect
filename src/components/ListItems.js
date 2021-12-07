@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
-
 class ListItems extends React.Component{
   state = {
     baiDang: []
@@ -13,24 +12,23 @@ class ListItems extends React.Component{
     .then(res => {
         const baiDang = res.data;
         this.setState({baiDang});
-        console.log('123');
       })
       .catch(function (error) {
         console.log(error);
-        console.log('khác chút nhé');
       });
     }
     render(){
-    
+       
     return (
         <div>
             {this.state.baiDang.map((props) => {
             
               return(
+            
               <div>
                <div className="container-item">
                <div>
-               <img src={require(`../Images/${props.url}`).default} alt="Hinh Can Ho" width="100" height="100"/>
+               <img src={require(`../Images/${props.hinhanh}`).default} alt="Hinh Can Ho" width="100" height="100"/>
                </div>
               <div className="re__card-info-content">
                   <h3 className="re__card-title">
