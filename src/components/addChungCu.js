@@ -1,10 +1,8 @@
 import React, { useState, useEffect, Alert } from "react";
 import { MapContainer, TileLayer, FeatureGroup } from "react-leaflet";
-// import { EditControl } from "react-leaflet-draw";
-// import "leaflet/dist/leaflet.css";
-// import "leaflet-draw/dist/leaflet.draw.css";
-// import "react-leaflet/dist/react-leaflet.min.js";
-// import "react-leaflet/dist/react-leaflet.js";
+import { EditControl } from "react-leaflet-draw";
+import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
 import "../index.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
