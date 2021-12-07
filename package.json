@@ -15,7 +15,11 @@
     "bootstrap4": "0.0.1-security",
     "dateformat": "^5.0.2",
     "font-awesome": "^4.7.0",
+<<<<<<< HEAD
     "jquery": "^3.6.0",
+=======
+    "jquery": "^3.6.0"
+>>>>>>> master
     "leaflet": "^1.7.1",
     "leaflet-draw": "^1.0.4",
     "leaflet-routing-machine": "^3.2.12",
