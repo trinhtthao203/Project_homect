@@ -1,14 +1,17 @@
-import Nav from "./nav";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import L from "leaflet";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import BlueIcon from "../Leaflet/css/images/blueicon.png";
-
+import { getUser } from "../Utils/Common";
+// import { Alert } from "bootstrap";
+// import "bootstrap/dist/js/popper.min.js";
 function Itemdetail(props) {
+  const usr = getUser();
   const itemId = props.match.params.id;
   const [Item, setItem] = useState([]);
+
   useEffect(() => {
     axios
       .post("/baidang/id", {
@@ -23,9 +26,44 @@ function Itemdetail(props) {
         console.log(error);
       });
   }, []);
-  //const photo = require(`../Images/${Item.url}`).default;
-  return (
-    <div>
+
+  const idbaidang = Item.idbaidang;
+  const handleDelete = () => {
+    if (window.confirm("Xác nhận xóa !!!")) {
+      axios
+        .delete(`/delBaiDang/${idbaidang}`)
+        .then((response) => {
+          console.log("Xóa bài đăng thành công");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+    props.history.push("/");
+  };
+
+  let nav;
+  if (usr.user_id === Item.userid) {
+    nav = (
+      <nav className="navbar navbar-expand navbar-light fixed-top">
+        <div className="container">
+          <Link className="navbar-brand" to={"/"}>
+            Trang chủ
+          </Link>
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <button className="btn-custom" onClick={handleDelete}>
+                  Xóa bài đăng
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  } else {
+    nav = (
       <nav className="navbar navbar-expand navbar-light fixed-top">
         <div className="container">
           <Link className="navbar-brand" to={"/"}>
@@ -33,9 +71,16 @@ function Itemdetail(props) {
           </Link>
         </div>
       </nav>
+    );
+  }
+
+  //const photo = require(`../Images/${Item.url}`).default;
+  return (
+    <div>
       <br />
       <br />
       <br />
+      {nav}
       <div className="item-page-detail">
         <h1 className="item-name">{Item.tieude}</h1>
         <div className="item-info">

@@ -153,3 +153,32 @@ body, html, .App,#root,.auth-wrapper{
   border: 1px solid #999;
   border-radius: 5px;
 }
+
+.Img-post{
+  width:540px
+}
+
+.container-body{
+  margin-top: 50px;
+}
+.container-listitem{
+  position: absolute;
+  top: 520px;
+}
+
+.carousel-item{
+  display: flex;
+  height: 450px;
+  background:#7f7d7d;
+  color:#fff;
+  position: absolute;
+}
+
+.container-itemslider{
+  margin-top:80px;
+  position: absolute;
+  bottom:0;
+  left:10px;
+  right: 0;
+  padding-bottom: 50px;
+}

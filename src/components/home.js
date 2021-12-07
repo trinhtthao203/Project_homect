@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, removeUserSession } from "../Utils/Common";
 import { Link } from "react-router-dom";
 import ListItems from "./ListItems";
+import Slider from "./slider";
+import "../index.css";
 function Home(props) {
   const user = getUser();
   const token = getToken();
@@ -59,8 +61,10 @@ function Home(props) {
   return (
     <div>
       {nav}
-      <br />
-      <ListItems />
+      <div className="container-body">
+        <Slider />
+        <ListItems />
+      </div>
     </div>
   );
 }
