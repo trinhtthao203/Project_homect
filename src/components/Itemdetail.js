@@ -10,6 +10,13 @@ function Itemdetail(props) {
   const usr = getUser();
   const itemId = props.match.params.id;
   const [Item, setItem] = useState({});
+  let usrid;
+
+  if (getUser()) {
+    usrid = usr.user_id;
+  } else {
+    usrid = 0;
+  }
 
   useEffect(() => {
     axios
@@ -47,7 +54,7 @@ function Itemdetail(props) {
   };
 
   let nav;
-  if (usr.user_id === Item.userid) {
+  if (usrid === Item.userid) {
     nav = (
       <nav className="navbar navbar-expand navbar-light fixed-top">
         <div className="container">

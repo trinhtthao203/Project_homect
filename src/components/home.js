@@ -21,6 +21,9 @@ function Home(props) {
           <Link className="navbar-brand" to={"/"}>
             Trang chủ
           </Link>
+          <p className="head-helo">
+            Chào mừng <p>{user.fullname}</p> 🌻🌻🌻
+          </p>
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
