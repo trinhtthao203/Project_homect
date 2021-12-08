@@ -83,20 +83,6 @@ body, html, .App,#root,.auth-wrapper{
   font-weight: 400;
 }
 
-.forgot-password,
-.forgot-password a{
-  text-align: right;
-  font-size: 13px;
-  padding-top: 10px;
-  color: #7f7d7d;
-  margin:0;
-}
-
-.forgot-password a{
-  color:#167bff;
-}
-
-
 .header {
   padding: 30px;
   background: #fff;
@@ -228,4 +214,30 @@ body, html, .App,#root,.auth-wrapper{
 .head-helo p{
   display: inline;
   color:#f9ca24;
+}
+
+.btn-detail{
+  position: absolute;
+  bottom: 5px;
+  right:7px;
+  display: block;
+  text-decoration: none;
+  color:#40739e;
+  font-weight: bold;  
+}
+
+.copy-right{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.container-home-footer{ 
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right: 0;
+  padding-top: 50px;
+}
+
+.text-home-footer{
+  margin: 0 !important;
 }

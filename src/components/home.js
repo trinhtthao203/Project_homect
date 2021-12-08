@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { getUser, getToken, removeUserSession } from "../Utils/Common";
 import { Link } from "react-router-dom";
 import ListItems from "./ListItems";
-import Slider from "./slider";
+import Slider from "./part/slider";
+import Footer from "./part/HomeFooter";
 import "../index.css";
 function Home(props) {
   const user = getUser();

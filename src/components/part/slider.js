@@ -1,12 +1,12 @@
 import React from "react";
-import "../index.css";
+import "../../index.css";
 
 // import Carousel from "react-elastic-carousel";
 
-import Slide1 from "../Images/slide1.jpg";
-import Slide2 from "../Images/slide2.jpg";
-import Slide3 from "../Images/slide3.jpg";
-import Slide4 from "../Images/slide4.jpg";
+import Slide1 from "../../Images/slide1.jpg";
+import Slide2 from "../../Images/slide2.jpg";
+import Slide3 from "../../Images/slide3.jpg";
+import Slide4 from "../../Images/slide4.jpg";
 
 // const breakPoint = [
 //   { width: 1, itemToShow: 1 },

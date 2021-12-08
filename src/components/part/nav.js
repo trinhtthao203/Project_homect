@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getUser, removeUserSession } from "../Utils/Common";
+import { getUser, removeUserSession } from "../../Utils/Common";
 
 function Nav(props) {
   const user = getUser();
