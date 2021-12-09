@@ -40,5 +40,4 @@ function RouteMap(props) {
   }, [map]);
   return null;
 }
-//const RouteMap = createControlComponent(routeMap);
 export default RouteMap;

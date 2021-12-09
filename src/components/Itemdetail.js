@@ -205,10 +205,11 @@ function Itemdetail(props) {
             <div>
               {Item.toado && (
                 <MapContainer
+                  className="map"
                   center={[Item.toado.y, Item.toado.x]}
                   zoom={16}
                   scrollWheelZoom={true}
-                  style={{ height: 400, width: 750 }}
+                  style={{ height: 400, width: 1020 }}
                 >
                   <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
