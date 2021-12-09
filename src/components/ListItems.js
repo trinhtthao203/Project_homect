@@ -42,8 +42,15 @@ class ListItems extends React.Component {
                     />
                     <div className="card-body">
                       <h5 className="card-title">{props.tieude}</h5>
-                      <p className="card-text">{props.mota}</p>
-                      <span>Đăng bởi: {props.fullname} </span>
+                      <p className="card-text">
+                        {" "}
+                        🏡: {props.dientich} m2 💰:{props.mucgia} triệu\m2{" "}
+                      </p>
+                      <p>
+                        Đăng bởi: <span>{props.fullname} </span> <br /> Ngày
+                        đăng: {dateFormat(props.ngaydang, "dd/mm/yyyy")}{" "}
+                      </p>
+
                       <a
                         href={`/Itemdetail/${props.idbaidang}`}
                         className="btn-detail"
