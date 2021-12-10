@@ -18,7 +18,7 @@ let DefaultIcon = L.icon({
 
 L.Marker.prototype.options.icon = DefaultIcon;
 
-function addChungCu(props) {
+const AddChungCu = (props) => {
   const [mapLayer, setMapLayer] = useState([]);
   const [tenchungcu, setTenChungCu] = useState();
   const [isToado, setIsToaDo] = useState(false);
@@ -254,4 +254,4 @@ function addChungCu(props) {
   );
 }
 
-export default addChungCu;
+export default AddChungCu;

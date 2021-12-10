@@ -5,7 +5,7 @@ import axios from "axios";
 import $ from "jquery";
 import { getUser } from "../Utils/Common";
 
-function post(props) {
+const Post = props => {
   const [tieude, setTieuDe] = useState("");
   const [chungcu, setChungCu] = useState(1);
   const [dientich, setDienTich] = useState();
@@ -325,4 +325,4 @@ function post(props) {
     </div>
   );
 }
-export default post;
+export default Post;

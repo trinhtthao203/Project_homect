@@ -130,7 +130,7 @@ function Itemdetail(props) {
               <MapContainer
                 className="map"
                 center={[Item.toado.y, Item.toado.x]}
-                zoom={16}
+                zoom={17}
                 scrollWheelZoom={true}
                 style={{ height: 500, width: 1200 }}
               >

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import ListItems from "./ListItems";
 import Slider from "./part/slider";
 import Footer from "./part/HomeFooter";
+// import SearchItem from "./SearchItem";
 import "../index.css";
 function Home(props) {
   const user = getUser();
@@ -67,6 +68,7 @@ function Home(props) {
       {nav}
       <div className="container-body">
         <Slider />
+        
         <ListItems />
       </div>
     </div>
