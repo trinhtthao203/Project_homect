@@ -35,12 +35,12 @@ function Slider() {
         <div className="carousel-item active">
           <img
             className="d-block w-100 slider-style"
-            src={Slide1}
+            src={Slide3}
             alt="First slide"
           />
-          <div className="carousel-caption d-none d-md-block text-slide">
+          <div className="text-title">
             <h5>Mua bán căn hộ chung cư</h5>
-            <p>"Biểu tượng của sự hoàn hảo" - Thiên Quân Plaza</p>
+            <p>HOMECT</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -51,7 +51,7 @@ function Slider() {
           </div>
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={Slide3} alt="Third slide" />
+          <img className="d-block w-100" src={Slide1} alt="Third slide" />
           <div className="carousel-caption d-none d-md-block text-slide">
             <h5>Mua bán căn hộ chung cư</h5>
             <p>"Thành phố xanh tươi. Cuộc đời trọn vẹn" - Dự án Ecopark</p>
