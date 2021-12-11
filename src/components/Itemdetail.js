@@ -121,26 +121,24 @@ function Itemdetail(props) {
       <div className="auth-wrapper-itemdetail">
         <div className="auth-inner-detail">
           <div className="item-page-detail">
-            <div className="container">
-              <div className="row">
-                <div className="col-sm-8">
-                  <img className="item-img" src={Item.hinhanh} />
-                </div>
-                <div className="col-sm-4">
-                  <div className="card" style={{ width: "100%" }}>
-                    <div style={{ textAlign: "center" }} className="card-body">
-                      <h5 className="card-title">Thông tin người đăng</h5>
-                      <div>{img}</div>
-                    </div>
-                    <ul className="list-group list-group-flush">
-                      <li className="list-group-item">
-                        🔎 Họ tên: <span>{Item.fullname}</span>
-                      </li>
-                      <li className="list-group-item">
-                        📞 Số điện thoại: <span>{Item.phonenumber}</span>
-                      </li>
-                    </ul>
+            <div className="row">
+              <div className="col-sm-8">
+                <img className="item-img" src={Item.hinhanh} />
+              </div>
+              <div className="col-sm-4">
+                <div className="card" style={{ width: "100%" }}>
+                  <div style={{ textAlign: "center" }} className="card-body">
+                    <h5 className="card-title">Thông tin người đăng</h5>
+                    <div>{img}</div>
                   </div>
+                  <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
+                      🔎 Họ tên: <span>{Item.fullname}</span>
+                    </li>
+                    <li className="list-group-item">
+                      📞 Số điện thoại: <span>{Item.phonenumber}</span>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -209,7 +207,6 @@ function Itemdetail(props) {
                   center={[Item.toado.y, Item.toado.x]}
                   zoom={16}
                   scrollWheelZoom={true}
-                  style={{ height: 400, width: 1020 }}
                 >
                   <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
