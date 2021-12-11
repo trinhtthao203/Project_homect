@@ -10,6 +10,11 @@ function Home(props) {
   const user = getUser();
   const token = getToken();
 
+  const handleLogout = () => {
+    removeUserSession();
+    props.history.push("/login");
+  };
+
   let nav;
   if (getUser() && getToken()) {
     nav = (
