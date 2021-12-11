@@ -4,7 +4,7 @@ import "../index.css";
 import axios from "axios";
 import { getUser } from "../Utils/Common";
 
-const Post = props => {
+const Post = (props) => {
   const [tieude, setTieuDe] = useState("");
   const [chungcu, setChungCu] = useState(1);
   const [dientich, setDienTich] = useState();
@@ -105,8 +105,8 @@ const Post = props => {
             <h1>Bài đăng</h1>
             <form className="container-from">
               <div className="form-group">
-                <label htmlFor="title">
-                  Tựa bài <label className="requirelbl">*</label>{" "}
+                <label className="form-label" htmlFor="title">
+                  Tựa bài <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -118,8 +118,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="apartment">
-                  Chung cư <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="apartment">
+                  Chung cư <span>*</span>
                 </label>
                 <select
                   className="form-control"
@@ -142,8 +142,12 @@ const Post = props => {
                 </p>
               </div>
               <div className="form-group">
-                <label htmlFor="area">
-                  Diện tích <label className="requirelbl">*</label>
+                <label
+                  className="form-label"
+                  className="form-label"
+                  htmlFor="area"
+                >
+                  Diện tích <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -155,8 +159,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="price">
-                  Mức giá <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="price">
+                  Mức giá <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -168,8 +172,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="number-floor">
-                  Tầng số <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="number-floor">
+                  Tầng số <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -181,8 +185,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="number-bedroom">
-                  Số phòng ngủ <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="number-bedroom">
+                  Số phòng ngủ <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -194,8 +198,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="number-toilet">
-                  Số phòng vệ sinh <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="number-toilet">
+                  Số phòng vệ sinh <span>*</span>
                 </label>
                 <input
                   className="form-control"
@@ -207,8 +211,8 @@ const Post = props => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="district">
-                  Nội thất <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="district">
+                  Nội thất <span>*</span>
                 </label>
                 <select
                   className="form-control"
@@ -225,8 +229,8 @@ const Post = props => {
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="juridical">
-                  Pháp lý <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="juridical">
+                  Pháp lý <span>*</span>
                 </label>
                 <select
                   className="form-control"
@@ -249,8 +253,8 @@ const Post = props => {
                 rel="stylesheet"
               />
               <div className="form-group">
-                <label htmlFor="description">
-                  Hình ảnh <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="description">
+                  Hình ảnh <span>*</span>
                 </label>
                 <div className="custom-file">
                   <input
@@ -300,7 +304,10 @@ const Post = props => {
                 <div id="charNum">{textlen}/500 </div>
               </div>
               {error && <div className="error">{error}</div>}
-              <p styles={{ color: "red" }}>* Bắt buộc</p>
+              <p className="form-label">
+                {" "}
+                <span>*</span> Bắt buộc
+              </p>
               <div className="d-grid gap-2">
                 <button
                   onClick={handleSubmit}
@@ -323,5 +330,5 @@ const Post = props => {
       </div>
     </div>
   );
-}
+};
 export default Post;

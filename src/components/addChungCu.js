@@ -139,8 +139,8 @@ const AddChungCu = (props) => {
             <form>
               <h3>Thêm chung cư</h3>
               <div className="form-group">
-                <label htmlFor="juridical">
-                  Quận <label className="requirelbl">*</label>
+                <label className="form-label" htmlFor="juridical">
+                  Quận <span>*</span>
                 </label>
                 <select
                   className="form-control"
@@ -156,8 +156,8 @@ const AddChungCu = (props) => {
                 </select>
               </div>
               <div className="form-group">
-                <label>
-                  Tên chung cư<label className="requirelbl">*</label>
+                <label className="form-label">
+                  Tên chung cư <span>*</span>
                 </label>
                 <input
                   type="text"
@@ -175,9 +175,9 @@ const AddChungCu = (props) => {
                   onChange={(val) => setDiaChi(val.target.value)}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="apartment">
-                  Tên đường <label className="requirelbl">*</label>
+              <div className="form-label" className="form-group">
+                <label className="form-label" htmlFor="apartment">
+                  Tên đường <span>*</span>
                 </label>
                 <input
                   type="text"
@@ -186,8 +186,8 @@ const AddChungCu = (props) => {
                   onChange={(val) => setTenDuong(val.target.value)}
                 />
               </div>
-              <label htmlFor="title">
-                Chọn tọa độ <label className="requirelbl">*</label>{" "}
+              <label className="form-label" htmlFor="title">
+                Chọn tọa độ <span>*</span>
               </label>
               <div id="map">
                 <MapContainer
@@ -229,7 +229,9 @@ const AddChungCu = (props) => {
                 </MapContainer>
               </div>
               {error && <div className="error">{error}</div>}
-              <p styles={{ color: "red" }}>* Bắt buộc</p>
+              <label className="form-label">
+                <span>*</span> Bắt buộc
+              </label>
               <div className="d-grid gap-2">
                 <button
                   onClick={handleSubmit}
@@ -252,6 +254,6 @@ const AddChungCu = (props) => {
       </div>
     </div>
   );
-}
+};
 
 export default AddChungCu;

@@ -2,16 +2,15 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
-import Footer from "./part/HomeFooter";
 import SearchItem from "./SearchItem";
 import Item from "./Item";
 class ListItems extends React.Component {
   state = {
     baiDang: [],
     selectField: 30,
-    sort: 30
+    sort: 30,
   };
-  componentDidMount() {  
+  componentDidMount() {
     axios
       .get("/baidang")
       .then((res) => {
@@ -21,61 +20,57 @@ class ListItems extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-    }
-  
-  handleSelect = (e) =>{
+  }
+
+  handleSelect = (e) => {
     console.log(e.target.value);
-    this.setState({selectField: e.target.value})
+    this.setState({ selectField: e.target.value });
   };
 
-  handleSort = (e) =>{
+  handleSort = (e) => {
     console.log(e.target.value);
-    this.setState({sort: e.target.value})
+    this.setState({ sort: e.target.value });
   };
 
-  handleSearch = (e) =>{
-
+  handleSearch = (e) => {
     e.preventDefault();
-    if(this.state.selectField == 0 && this.state.sort == 0)
-    {
+    if (this.state.selectField == 0 && this.state.sort == 0) {
       axios
-      .get("/baidang")
-      .then((res) => {
-        const baiDang = res.data;
-        this.setState({ baiDang });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
-    else {
+        .get("/baidang")
+        .then((res) => {
+          const baiDang = res.data;
+          this.setState({ baiDang });
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else {
       console.log(this.state.selectField);
-    axios
-    .post("/timkiem/idquan", {
-      idquan: this.state.selectField,
-      mucgia: this.state.sort
-    })
-    .then((res) => {
-      const baiDang = res.data;
-      this.setState({ baiDang });
-      console.log('tìm thành công');
-    })
-    .catch((error) => {
-      console.log(error);
-      console.log("lỗi tìm tiếm không lấy được dữ liệu");
-    });
-  }
-  }
+      axios
+        .post("/timkiem/idquan", {
+          idquan: this.state.selectField,
+          mucgia: this.state.sort,
+        })
+        .then((res) => {
+          const baiDang = res.data;
+          this.setState({ baiDang });
+          console.log("Tìm thành công");
+        })
+        .catch((error) => {
+          console.log(error);
+          console.log("lỗi tìm tiếm không lấy được dữ liệu");
+        });
+    }
+  };
   render() {
     return (
-      <div> 
-        <div className="container-listitem">
-        <SearchItem handleSelect={this.handleSelect} handleSort={this.handleSort} handleSearch={this.handleSearch}/>
-          <Item baiDang={this.state.baiDang}/>
-          <div className="container-home-footer">
-            <Footer />
-          </div>
-        </div>
+      <div className="container-search">
+        <SearchItem
+          handleSelect={this.handleSelect}
+          handleSort={this.handleSort}
+          handleSearch={this.handleSearch}
+        />
+        <Item baiDang={this.state.baiDang} />
       </div>
     );
   }

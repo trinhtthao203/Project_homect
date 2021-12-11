@@ -4,16 +4,11 @@ import { Link } from "react-router-dom";
 import ListItems from "./ListItems";
 import Slider from "./part/slider";
 import Footer from "./part/HomeFooter";
-// import SearchItem from "./SearchItem";
+
 import "../index.css";
 function Home(props) {
   const user = getUser();
   const token = getToken();
-
-  const handleLogout = () => {
-    removeUserSession();
-    props.history.push("/login");
-  };
 
   let nav;
   if (getUser() && getToken()) {
@@ -68,8 +63,12 @@ function Home(props) {
       {nav}
       <div className="container-body">
         <Slider />
-        
+      </div>
+      <div className="container-listitem">
         <ListItems />
+      </div>
+      <div className="container-home-footer">
+        <Footer />
       </div>
     </div>
   );

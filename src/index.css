@@ -151,10 +151,6 @@ body, html, .App,#root,.auth-wrapper{
 .container-body{
   margin-top: 50px;
 }
-.container-listitem{
-  position: absolute;
-  top: 520px;
-}
 
 .carousel-item{
   display: flex;
@@ -187,16 +183,19 @@ body, html, .App,#root,.auth-wrapper{
   font-size: 100px;  
 }
 .container-listitem{
-  padding-left: 8.5%;
-  padding-right: 8.5%;
-  padding-top:70px; 
-  margin-top: 285px;
-  background-color: rgba(149,175,192, 2);
+  padding:70px 8.5% 0 8.5%;
+  width: 100%;
+  /* background-color: rgba(149,175,192, 2);  */
+}
+
+.form-label span{
+  color: red;
 }
 
 .container-card-baidang{ 
   margin: 20px;
   float: left;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .card-text{
@@ -242,12 +241,8 @@ body, html, .App,#root,.auth-wrapper{
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.container-home-footer{ 
-  position: absolute;
-  bottom: -262px;
-  left:0;
-  right: 0;
-  padding-top: 50px;
+.container-home-footer{
+  clear: both;
 }
 
 .text-home-footer{
@@ -282,6 +277,12 @@ body, html, .App,#root,.auth-wrapper{
 .itemdetail-map{
   width: 100%;
   height: 50%;
+}
+
+.container-search{
+  height:50px;
+  width:100%;
+  padding: auto;
 }
 
 /* =================================== */
