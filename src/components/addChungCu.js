@@ -209,10 +209,11 @@ const AddChungCu = (props) => {
                         circlemarker: false,
                         polygon: false,
                         marker: {
-                          icon: new L.DivIcon({
-                            iconSize: new L.Point(8, 8),
-                            className: "leaflet-div-icon leaflet-editing-icon",
-                          }),
+                          // icon: new L.DivIcon({
+                          //   iconSize: new L.Point(8, 8),
+                          //   className: "leaflet-div-icon leaflet-editing-icon",
+                          // }),
+                          icon: DefaultIcon,
                           shapeOptions: {
                             guidelineDistance: 10,
                             color: "navy",

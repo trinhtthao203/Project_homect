@@ -3,8 +3,9 @@ import L from "leaflet";
 import "leaflet-routing-machine";
 //import { createControlComponent } from "@react-leaflet/core";
 import { useMap } from "react-leaflet";
-import BlueIcon from "../Leaflet/css/images/blueicon.png";
-
+import UserIcon from "../Leaflet/css/images/blueicon.png";
+import Shadow from "../Leaflet/css/images/marker-shadow.png";
+import CTIcon from "../Leaflet/css/images/redIcon.png";
 function RouteMap(props) {
   const map = useMap();
   const position2 = L.latLng(props.location);
@@ -31,10 +32,27 @@ function RouteMap(props) {
         if (i == 0)
           return L.marker(
             wp.latLng,
-            { draggable: true },
-            { iconUrl: BlueIcon }
+            { draggable: true, icon: L.icon({
+              iconUrl: UserIcon,
+                iconSize: [38, 95],
+                iconAnchor: [22, 94],
+                popupAnchor: [-3, -76],
+                shadowUrl: Shadow,
+                shadowSize: [68, 95],
+                shadowAnchor: [22, 94]
+            }) }
           ).bindPopup("Vị trí của bạn");
-        else return L.marker(wp.latLng).bindPopup("Vị trí chung cư");
+        else return L.marker(wp.latLng,{
+          icon: L.icon({
+            iconUrl: CTIcon,
+              iconSize: [38, 95],
+              iconAnchor: [22, 94],
+              popupAnchor: [-3, -76],
+              shadowUrl: Shadow,
+              shadowSize: [68, 95],
+              shadowAnchor: [22, 94]
+          }) 
+        }).bindPopup("Vị trí chung cư");
       },
     }).addTo(map);
   }, [map]);
