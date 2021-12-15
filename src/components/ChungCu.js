@@ -39,11 +39,6 @@ function ChungCu(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={"/chungcu"}>
-                Danh sách chung cư
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" onClick={handleLogout} to={"/"}>
                 Đăng xuất
               </Link>
@@ -73,7 +68,7 @@ function ChungCu(props) {
           console.log(error);
         });
     }
-    location.reload();
+    window.location.reload();
   };
 
   return (
@@ -107,7 +102,7 @@ function ChungCu(props) {
               <th scope="col">Địa chỉ</th>
               <th scope="col">Tên đường</th>
               <th scope="col">Quận</th>
-              <th scope="col">''</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>

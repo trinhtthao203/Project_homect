@@ -38,8 +38,8 @@ function RouteMap(props) {
               iconAnchor: [22, 94],
               popupAnchor: [-3, -76],
               shadowUrl: Shadow,
-              shadowSize: [68, 95],
-              shadowAnchor: [22, 94],
+              shadowSize: [50, 64],
+              shadowAnchor: [4, 62],
             }),
           }).bindPopup("Vị trí của bạn");
         else
@@ -50,8 +50,8 @@ function RouteMap(props) {
               iconAnchor: [22, 94],
               popupAnchor: [-3, -76],
               shadowUrl: Shadow,
-              shadowSize: [68, 95],
-              shadowAnchor: [22, 94],
+              shadowSize: [50, 64],
+              shadowAnchor: [4, 62],
             }),
           }).bindPopup("Vị trí chung cư");
       },
