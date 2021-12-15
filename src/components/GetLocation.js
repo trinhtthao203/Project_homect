@@ -22,13 +22,11 @@ function GetLocation () {
     };
     useEffect(()=>{
         if(!('geolocation' in navigator)){
-            setLocation(state =>({
-                ...state,
-                loaded: true,
-                error: {
-                    message: 'Location not supported',
-                }
-            }));
+            onError({
+                code: 0,
+                message: 'Location not supported',
+                
+            });
         }
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
     },[])
