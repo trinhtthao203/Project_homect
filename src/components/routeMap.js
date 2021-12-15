@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import L from "leaflet";
+import "leaflet-routing-machine/examples/Control.Geocoder.js";
 import "leaflet-routing-machine";
 //import { createControlComponent } from "@react-leaflet/core";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
 import { useMap } from "react-leaflet";
 import UserIcon from "../Leaflet/css/images/leaf-green.png";
 import Shadow from "../Leaflet/css/images/leaf-shadow.png";
@@ -21,8 +23,7 @@ function RouteMap(props) {
       lineOptions: {
         styles: [{ color: "green", weight: 3.5 }],
       },
-      collapsible: true,
-      show: true,
+      geocoder: L.Control.Geocoder.nominatim(),
       addWaypoints: false,
       routeWhileDragging: true,
       //   draggableWaypoints: true,
