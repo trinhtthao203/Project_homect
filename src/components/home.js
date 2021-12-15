@@ -9,6 +9,11 @@ import "../index.css";
 function Home(props) {
   const user = getUser();
   const token = getToken();
+  let quyensd = "";
+
+  if (getUser()) {
+    quyensd = user.quyensd;
+  }
 
   const handleLogout = () => {
     removeUserSession();
@@ -16,7 +21,39 @@ function Home(props) {
   };
 
   let nav;
-  if (getUser() && getToken()) {
+  if (getUser() && getToken() && quyensd === "1") {
+    nav = (
+      <nav className="navbar navbar-expand navbar-light fixed-top">
+        <div className="container">
+          <Link className="navbar-brand" to={"/"}>
+            Trang chủ
+          </Link>
+          <p className="head-helo">
+            Chào mừng <p>{user.fullname}</p> 🌻🌻🌻
+          </p>
+          <div className="collapse navbar-collapse justify-content-end">
+            <ul className="navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link className="nav-link" to={"/post"}>
+                  Tạo bài đăng
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/chungcu"}>
+                  Danh sách chung cư
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" onClick={handleLogout} to={"/"}>
+                  Đăng xuất
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    );
+  } else if (getUser() && getToken()) {
     nav = (
       <nav className="navbar navbar-expand navbar-light fixed-top">
         <div className="container">

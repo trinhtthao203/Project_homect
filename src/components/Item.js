@@ -9,7 +9,7 @@ function Item(props) {
     <div>
       {props.baiDang.map((props) => {
         return (
-          <div className="container-card-baidang">
+          <div className="container-card-baidang" key={props.idbaidang}>
             <div className="card" style={{ width: "18rem", height: "27rem" }}>
               <a href={`/Itemdetail/${props.idbaidang}`} className="card-link">
                 <img

@@ -21,7 +21,7 @@ const SearchItem = (props) => {
           <div className="col-sm-3">
             <select
               // className="search-area"
-              class="form-select"
+              className="form-select"
               defaultValue="Tìm quận"
               onChange={props.handleSelect}
             >

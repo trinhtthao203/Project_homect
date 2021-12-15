@@ -12,12 +12,15 @@ function Itemdetail(props) {
   const usr = getUser();
   const itemId = props.match.params.id;
   const [Item, setItem] = useState({});
-  let usrid;
+  let usrid, quyensd;
 
   if (getUser()) {
     usrid = usr.user_id;
+    quyensd = usr.quyensd;
+    console.log(quyensd);
   } else {
     usrid = 0;
+    quyensd = "";
   }
 
   useEffect(() => {
@@ -56,7 +59,7 @@ function Itemdetail(props) {
   };
 
   let nav;
-  if (usrid === Item.userid) {
+  if (usrid === Item.userid || quyensd === "1") {
     nav = (
       <nav className="navbar navbar-expand navbar-light fixed-top">
         <div className="container">

@@ -6,6 +6,8 @@ import Register from "./components/register";
 import Itemdetail from "./components/Itemdetail";
 import Post from "./components/post";
 import AddChungCu from "./components/addChungCu";
+import ChungCu from "./components/ChungCu";
+
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PublicRoute from "./Utils/PublicRoute";
 import PrivateRoute from "./Utils/PrivateRoute";
@@ -59,6 +61,7 @@ function App(props) {
             <Route exact path="/routeMap/:lng/:lat" component={BigMap} />
             <Route exact path="/post" component={Post} />
             <Route exact path="/addChungCu" component={AddChungCu} />
+            <Route exact path="/chungcu" component={ChungCu} />
           </Switch>
         </div>
       </BrowserRouter>
